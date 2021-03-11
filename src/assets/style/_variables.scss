@@ -1,0 +1,27 @@
+// Bootstrap colors
+$theme-colors: (
+    'dark': #0c0c0c,
+    'light': #f9f9f9,
+    'default': #4e4e4e,
+    'cam': #F866A9,
+    'gallery': #5BFDAC,
+    'chat': #56A5FF
+);
+
+// Colors
+$background-color: #ffffff;
+
+// Overlay
+$z-overlay: 9999;
+
+// Sidebar
+$z-sidebar: 500;
+$sidebar-width-closed: 70px;
+$sidebar-width-open: 250px;
+
+// Navbar
+$z-navbar: 700;
+$navbar-height: 70px;
+
+// Transitions
+$default-transition: ease-in-out .4s;
