@@ -1,4 +1,14 @@
 @import './_variables.scss';
-
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 @import "~bootstrap/scss/bootstrap";
 @import '~bootstrap-vue/src/index.scss';
+
+.content {
+    background-color: $background-color;
+    margin: 2em 5em;
+    height: 100vh;
+}
+
+.small-caps {
+    font-variant: small-caps;
+}

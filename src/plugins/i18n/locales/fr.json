@@ -1,3 +1,26 @@
 {
-    "home": "Bienvenu !"
+    "meta": {
+        "suffix": "Metagricol",
+        "Home": "Accueil",
+        "About": "À Propos",
+        "Dashboard": "Dashboard"
+    },
+    "utils": {
+        "loading": "Chargement..."
+    },
+    "lang": {
+        "fr": "Français",
+        "en": "English"
+    },
+    "menu": {
+        "home": "Accueil",
+        "dashboard": "Dashboard",
+        "about": "À propos"
+    },
+    "about": {
+        "title": "À propos de Metagricol"
+    },
+    "dashboard": {
+        "title": "Dashboard"
+    }
 }

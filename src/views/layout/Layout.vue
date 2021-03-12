@@ -31,7 +31,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/assets/style/main.scss';
 .wrap {
   transition: $default-transition;
   margin-left: $sidebar-width-closed;
@@ -39,10 +38,5 @@ export default {
   &.open {
     margin-left: $sidebar-width-open;
   }
-}
-.content {
-  background-color: $background-color;
-  margin: 2em 5em;
-  height: 100vh;
 }
 </style>

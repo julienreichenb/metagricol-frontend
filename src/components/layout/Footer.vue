@@ -11,16 +11,16 @@
 
 <script>
 export default {
+    name: 'Footer',
     data() {
         return {
-            tKey: 'menu.footer.',
+            tKey: 'footer.',
         }
     },
 }
 </script>
 
 <style lang="scss">
-@import '@/assets/style/main.scss';
 #footer {
     width: 100%;
     border-top: 1px solid theme-color-level("secondary", -7);

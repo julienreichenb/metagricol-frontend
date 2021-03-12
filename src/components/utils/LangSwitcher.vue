@@ -1,15 +1,26 @@
 <template>
-  <div>
-      <b-button v-for="l in supportedLocales" :key="l" @click="switchLocale(l)">
-          {{l}}
-      </b-button>
-  </div>
+  <b-dropdown id="dropdown-lang" variant="outline-light" no-caret>
+        <template #button-content>
+            <font-awesome-icon class="fa-2x" :icon="['fal', 'globe']" /> {{ $i18n.locale.toUpperCase() }}
+        </template>
+        <b-dropdown-item v-for="locale in supportedLocales" 
+            :key="locale"
+            @click="switchLocale(locale)"
+        >
+            {{ $t(tKey + locale) }}
+        </b-dropdown-item>
+    </b-dropdown>
 </template>
 
 <script>
 import { Trans } from '@/plugins/i18n/translationHandler'
 export default {
     name: 'LangSwitcher',
+    data() {
+        return {
+            tKey: 'lang.'
+        }
+    },
     computed: {
         supportedLocales() {
             return Trans.supportedLocales

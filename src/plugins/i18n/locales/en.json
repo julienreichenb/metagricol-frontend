@@ -1,3 +1,10 @@
 {
-    "home": "Welcome !"
+    "meta": {
+        "suffix": "Metagricol",
+        "Home": "Home"
+    },
+    "lang": {
+        "fr": "Français",
+        "en": "English"
+    }
 }

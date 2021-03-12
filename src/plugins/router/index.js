@@ -11,13 +11,35 @@ const load = (component) => {
 const routes = [
   {
     path: '/:locale',
-    component: load('Layout'),
+    component: () => import(`@/components/utils/PassThrough.vue`),
     beforeEnter: Trans.routeMiddleware,
     children:[
       {
         path: '',
-        name: 'Home',
-        component: load('Home')
+        component: load('layout/LayoutNoSidebar'),
+        children: [
+          {
+            path: '',
+            name: 'Home',
+            component: load('Home'),
+          },
+          {
+            path: 'about',
+            name: 'About',
+            component: load('About'),
+          },
+        ]
+      },
+      {
+        path: '',
+        component: load('layout/Layout'),
+        children: [
+          {
+            path: 'dashboard',
+            name: 'Dashboard',
+            component: load('Dashboard'),
+          },
+        ]
       },
     ]
   },
