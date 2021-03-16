@@ -1,5 +1,5 @@
 <template>
-    <div v-if="exploitations.length">
+    <div v-if="exploitationsgis.length">
         <div class="w-100 border border-dark">
             <l-map
                 style="height: 65vh"
@@ -15,7 +15,7 @@
                     :url="url"
                     :attribution="attribution"
                 />
-                <ExploitationMarkers :exploitations="exploitations" :bounds="currentBounds" :zoom="currentZoom" />
+                <ExploitationMarkers :exploitations="exploitationsgis" :selected="selected" :bounds="currentBounds" :zoom="currentZoom" />
             </l-map>
         </div>
     </div>
@@ -32,6 +32,9 @@ export default {
     mixins: [MapMixin],
     components: {
         ExploitationMarkers,
+    },
+    props: {
+        selected: { type: Array, default: null },
     },
     data() {
         return {
@@ -59,8 +62,8 @@ export default {
         this.init()
     },
     mounted() {
-        //this.getExploitations()
-        this.getExploitation(33884)
+        this.getGis(33884)
+        //this.getAllGis()
     },
     methods: {
         init() {

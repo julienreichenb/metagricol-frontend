@@ -2,16 +2,16 @@ import { latLng } from "leaflet"
 export default {
     data() {
         return {
-            exploitations: []
+            exploitationsgis: []
         }
     },
     methods: {
-        async getExploitations() {
+        async getAllGis() {
             await this.axios.get('gis')
                 .then((res) => {
-                    this.exploitations = []
+                    this.exploitationsgis = []
                     res.data.map((e) => {
-                        this.exploitations.push(
+                        this.exploitationsgis.push(
                             {
                                 id: e.idexploitation,
                                 latLong: latLng(e.lat, e.long),
@@ -25,11 +25,11 @@ export default {
                     console.log(err)
                 })
         },
-        async getExploitation(id) {
+        async getGis(id) {
             await this.axios.get(`gis/${id}`)
                 .then((res) => {
-                    this.exploitations = []
-                    this.exploitations.push(
+                    this.exploitationsgis = []
+                    this.exploitationsgis.push(
                         {
                             id: res.data.idexploitation,
                             latLong: latLng(res.data.lat, res.data.long),

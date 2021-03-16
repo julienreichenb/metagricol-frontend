@@ -3,7 +3,10 @@
         "suffix": "Metagricol",
         "Home": "Accueil",
         "About": "À Propos",
-        "Dashboard": "Dashboard"
+        "Summary": "Vue d'ensemble",
+        "Cattle": "Bétail & Fumier",
+        "Culture": "Agriculture",
+        "Milk": "Production laitière"
     },
     "utils": {
         "loading": "Chargement..."
@@ -17,10 +20,24 @@
         "dashboard": "Dashboard",
         "about": "À propos"
     },
+    "sidebar": {
+        "title": "Menu du Dashboard",
+        "summary": "Vue d'ensemble",
+        "cattle": "Bétail & Fumier",
+        "culture": "Agriculture",
+        "milk": "Production laitière"
+    },
     "about": {
         "title": "À propos de Metagricol"
     },
     "dashboard": {
-        "title": "Dashboard"
+        "title": "Dashboard",
+        "summary": "Vue d'ensemble",
+        "table": {
+            "title": "Pour voir le détail d'une exploitation, cliquez sur la ligne"
+        },
+        "cattle": "Bétail & Fumier",
+        "culture": "Agriculture",
+        "milk":"Production laitière"
     }
 }

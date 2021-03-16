@@ -1,7 +1,13 @@
 <template>
-    <div class="p-3 mb-4 rounded text-light bg-dark">
-        <h1 v-html="$t(titleKey).toUpperCase()" />
-        <h3 v-if="subtitleKey" v-html="subtitle" />
+    <div class="page-title p-3 mt-4 text-light bg-dark">
+        <b-row class="align-items-center" no-gutters>
+            <b-col sm="1" class="page-title-point" />
+            <b-col>
+                <h1 v-html="$t(titleKey).toUpperCase()" />
+                <h5 class="mt-2 font-italic" v-if="subtitleKey" v-html="$t(subtitleKey)" />
+            </b-col>
+            <b-col sm="1" class="page-title-point" />
+        </b-row>
     </div>
 </template>
 
@@ -15,8 +21,17 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 h1 {
     margin: 0;
+}
+.page-title {
+    border-radius: 5px 5px 0 0;
+
+    .page-title-point::before {
+        font-size: 2em;
+        font-weight: bolder;
+        content: '·';
+    }
 }
 </style>

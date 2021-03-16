@@ -49,7 +49,7 @@ export default {
                 },
                 {
                     key: 'dashboard',
-                    route: 'Dashboard',
+                    route: 'Summary',
                 },
                 {
                     key: 'about',
