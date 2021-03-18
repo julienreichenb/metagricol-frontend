@@ -9,11 +9,29 @@
         "Milk": "Production laitière"
     },
     "utils": {
-        "loading": "Chargement..."
+        "none": "Aucun",
+        "all": "Tous",
+        "loading": "Chargement...",
+        "search": {
+            "placeholderDefault": "Rechercher...",
+            "searchDefault": "Rechercher",
+            "placeholderExploitant": "N° d'exploitation ou Exploitant..."
+        }
     },
     "lang": {
         "fr": "Français",
         "en": "English"
+    },
+    "cattle": {
+        "category": {
+            "bovin": "Bovins",
+            "équidé": "Équidés",
+            "ovin": "Ovins",
+            "caprin": "Caprins",
+            "autre": "Autres",
+            "volaille et lapin": "Volaille/Lapins",
+            "porcin": "Porcs"
+        }
     },
     "menu": {
         "home": "Accueil",
@@ -25,16 +43,25 @@
         "summary": "Vue d'ensemble",
         "cattle": "Bétail & Fumier",
         "culture": "Agriculture",
-        "milk": "Production laitière"
+        "milk": "Production laitière",
+        "exploitation": {
+            "title": "Liste des exploitations : cliquez pour en sélectionner",
+            "button": "Voir détail"
+        }
     },
     "about": {
         "title": "À propos de Metagricol"
     },
     "dashboard": {
-        "title": "Dashboard",
-        "summary": "Vue d'ensemble",
-        "table": {
-            "title": "Pour voir le détail d'une exploitation, cliquez sur la ligne"
+        "map": "Carte des exploitations",
+        "summary": {
+            "title": "Vue d'ensemble",
+            "cattle": {
+                "count": "Nombre expl.",
+                "sum": "Nombre UGBs",
+                "avg": "Moyenne UGBs",
+                "max": "Plus grande expl."
+            }
         },
         "cattle": "Bétail & Fumier",
         "culture": "Agriculture",

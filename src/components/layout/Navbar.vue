@@ -8,7 +8,7 @@
             <b-nav-item v-for="i in menu" 
                 :key="i.key" 
                 :to="$i18nRoute({ name: i.route } )" 
-                :class="($route.name === i.route && 'active')"
+                :class="$route.path.includes(i.key) && 'active'"
                 class="mr-3"
             >
                {{ $t(tKey + i.key).toUpperCase() }}
@@ -65,7 +65,7 @@ export default {
         randomIcon() {
             const rand = Math.floor(Math.random() * this.icons.length)
             return this.icons[rand]
-        }
+        },
     },
 }
 </script>

@@ -2,7 +2,8 @@
     <div v-if="exploitationsgis.length">
         <div class="w-100 border border-dark">
             <l-map
-                style="height: 65vh"
+                style="height: 55vh"
+                ref="map"
                 v-if="showMap"
                 :zoom="zoom"
                 :center="center"
@@ -15,7 +16,16 @@
                     :url="url"
                     :attribution="attribution"
                 />
-                <ExploitationMarkers :exploitations="exploitationsgis" :selected="selected" :bounds="currentBounds" :zoom="currentZoom" />
+                <ExploitationMarkers :exploitationsgis="exploitationsgis" :bounds="currentBounds" :zoom="currentZoom" />
+                <l-control position="topright" class="mt-2 mr-2">
+                    <b-link @click="recenterMap">
+                        <font-awesome-layers class="fa-6x">
+                            <font-awesome-icon icon="circle" class="text-primary" />
+                            <font-awesome-icon icon="circle" color="white" transform="shrink-1" />
+                            <font-awesome-icon :icon="['fad', 'crosshairs']" class="text-primary" transform="shrink-6" />
+                        </font-awesome-layers>
+                    </b-link>
+                </l-control>
             </l-map>
         </div>
     </div>
@@ -33,13 +43,10 @@ export default {
     components: {
         ExploitationMarkers,
     },
-    props: {
-        selected: { type: Array, default: null },
-    },
     data() {
         return {
-            zoom: 9,
-            center: latLng(46.3507967, 7.6220283),
+            zoom: 9.5,
+            center: latLng(46.1707967, 7.6220283),
             bounds: {
                 _northEast: latLng(46.92588289494367, 9.014282226562502),
                 _southWest: latLng(45.77135470445038, 6.231994628906251)
@@ -70,6 +77,12 @@ export default {
             this.currentZoom = this.zoom
             this.currentCenter = this.center
             this.currentBounds = this.bounds
+        },
+        recenterMap() {
+            this.$refs.map.mapObject.setView(
+                this.center,
+                this.zoom
+            )
         },
         zoomUpdate(zoom) {
             this.currentZoom = zoom

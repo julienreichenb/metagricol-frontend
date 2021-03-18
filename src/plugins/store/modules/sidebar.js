@@ -1,11 +1,17 @@
 export const state = {
-    isOpen: true,
+    isOpen: {
+        sidebar: true,
+        exploitation: false,
+    },
 }
 
 export const mutations = {
-    switchOpen(state) {        
-        state.isOpen = !state.isOpen
-    }
+    switchOpenSidebar(state) {        
+        state.isOpen.sidebar = !state.isOpen.sidebar
+    },
+    switchOpenExploitant(state) {        
+        state.isOpen.exploitation = !state.isOpen.exploitation
+    },
 }
 
 export const actions = {}

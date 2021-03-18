@@ -1,31 +1,40 @@
+import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
-            cattles: []
+            milksells: [],
+            milkChart: {
+                series: [],
+                options: null,
+            },
         }
     },
+    computed: {
+        ...mapGetters('utils', ['cattleCategories', 'cattleTypes', 'cultureTypes', 'cultureSpecies', 'cultureModes', 'areaTypes'])
+    },
     methods: {
-        async getCattles() {
-            await this.axios.get('cattles')
+        async getMilks() {
+            await this.axios.get('milks')
                 .then((res) => {
-                    this.cattles = []
-                    res.data.map((c) => {
-                        console.log(c)
-                    })
+                    this.milksells = res.data
                 })
                 .catch((err) => {
+                    this.milksells = []
                     console.log(err)
                 })
         },
-        async getCattle(id) {
-            await this.axios.get(`cattle/${id}`)
+        async getMilk(id) {
+            await this.axios.get(`milk/${id}`)
                 .then((res) => {
-                    this.cattles = []
-                    console.log(res.data)
+                    this.milksells = []
+                    this.milksells.push(res.data)
                 })
                 .catch((err) => {
+                    this.milksells = []
                     console.log(err)
                 })
+        },
+        setMilkChart() {
         },
     }
 }

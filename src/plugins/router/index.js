@@ -31,6 +31,11 @@ const routes = [
             name: 'About',
             component: load('About'),
           },
+          {
+            path: '/exploitation/:idexploitation',
+            name: 'ExploitationDetail',
+            component: load('ExploitationDetail'),
+          },
         ]
       },
       {

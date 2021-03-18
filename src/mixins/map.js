@@ -16,7 +16,8 @@ export default {
                                 id: e.idexploitation,
                                 latLong: latLng(e.lat, e.long),
                                 address: e.address,
-                                exploitant: e.exploitation.exploitant.fullname                                
+                                exploitant: e.exploitation.exploitant.fullname,
+                                noct: e.exploitation.noctexploitation,
                             }
                         )
                     })
@@ -34,7 +35,8 @@ export default {
                             id: res.data.idexploitation,
                             latLong: latLng(res.data.lat, res.data.long),
                             address: res.data.address,
-                            exploitant: res.data.exploitation.exploitant.fullname                                
+                            exploitant: res.data.exploitation.exploitant.fullname,
+                            noct: res.data.exploitation.noctexploitation,
                         }
                     )
                 })

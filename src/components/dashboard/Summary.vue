@@ -1,78 +1,99 @@
 <template>
     <div>
-        <page-title titleKey="dashboard.summary" subtitleKey="dashboard.table.title" />
-        <b-table id="summary-table" 
-            class="text-left" 
-            :items="exploitations"
-            :fields="fields"
-            :per-page="perPage"
-            :current-page="currentPage"
-            @row-clicked="goToDetail"                    
-            striped
-            hover
-        />
-        <b-pagination
-            v-model="currentPage"
-            :total-rows="rows"
-            :per-page="perPage"
-            aria-controls="summary-table"
-        />
+        <page-title :titleKey="tKey + 'title'" />
+        <b-row no-gutters>
+            <b-col lg="12" xl="6" class="pt-4">
+                <b-row no-gutters>
+                    <b-col class="cattle-entry"
+                        lg="6" xl="12" 
+                        v-for="(n, index) in cattleKeyNumbers" 
+                        :key="n.key"
+                    >
+                        <b-row no-gutters class="py-2 text-left" :class="index !== 0 && 'border-top'">
+                            <b-col sm="2">
+                                <font-awesome-icon class="fa-3x"
+                                    :icon="n.icon.icon" 
+                                    :color="n.icon.color" 
+                                />
+                            </b-col>
+                            <b-col sm="2">
+                                <p><b>{{ $t(tKey + 'cattle.count') }}</b></p>
+                                <p>{{ n.count }}</p>                       
+                            </b-col>
+                            <b-col sm="2">
+                                <p><b>{{ $t(tKey + 'cattle.sum') }}</b></p>
+                                <p>{{ n.sum }}</p>    
+                            </b-col>
+                            <b-col sm="3">
+                                <p><b>{{ $t(tKey + 'cattle.avg') }}</b></p>
+                                <p>{{ n.avg }}</p>    
+                            </b-col>
+                            <b-col sm="3">
+                                <p><b>{{ $t(tKey + 'cattle.max') }}</b></p>
+                                <p>{{ n.max }}</p>    
+                            </b-col>
+                        </b-row>
+                    </b-col>
+                </b-row>
+            </b-col>
+            <b-col lg="12" xl="6">
+                <apexchart v-if="cattleChart.ready" type="treemap" 
+                    height="500" width="100%"
+                    :series="cattleChart.series" 
+                    :options="cattleChart.options" 
+                />
+            </b-col>
+        </b-row>
     </div>
 </template>
 
 <script>
-import ExploitationMixin from '@/mixins/exploitation'
+import CattleMixin from '@/mixins/cattle'
+import CultureMixin from '@/mixins/culture'
+import MilkMixin from '@/mixins/milk'
 export default {
     name: 'Summary',
-    mixins: [ExploitationMixin],
+    mixins: [
+        CattleMixin,
+        CultureMixin,
+        MilkMixin,
+    ],
     data() {
         return {
-            perPage: 8,
-            currentPage: 1,
-            fields: [
-                {
-                    key: 'noctexploitation',
-                    label: 'No CT Exploitation',
-                    sortable: false,
-                },
-                {
-                    key: 'exploitant.fullname',
-                    label: 'Exploitant',
-                    sortable: true,
-                },
-                {
-                    key: 'totalugb',
-                    label: 'UGB',
-                    sortable: true,
-                    formatter: (val) => {
-                        return val.toLocaleString('fr-ch')
-                    },
-                },
-                {
-                    key: 'totalmilk',
-                    label: 'Kgs de lait',
-                    sortable: true,
-                    formatter: (val) => {
-                        return val.toLocaleString('fr-ch')
-                    },
-                },
-            ],
+            tKey: 'dashboard.summary.',
+            testid: 33884,
         }
     },
-    mounted() {
-        this.getSummary()
+    async created() {
+        await this.callApis()
+        this.formatCharts()
+        this.setKeyNumbers()
     },
     methods: {
-        goToDetail(item) {
-            this.$i18nRoute({ 
-                name: 'ExploitationDetail', 
-                params: { idexploitation: item.idexploitation } 
-            })
+        async callApis(id) {
+            if(id) {
+                await this.getMilk(id)
+                await this.getCattle(id)
+            } else {
+                await this.getMilks()
+                await this.getCattles()
+            }
         },
-    }
+        formatCharts() {
+            this.setMilkChart()
+            this.setCattleChart()
+        },
+        setKeyNumbers() {
+            this.setCattleKeyNumbers()
+        }
+    },
 }
 </script>
 
-<style>
-
+<style lang="scss">
+.cattle-entry {
+    p {
+        margin: 0;
+    }
+}
 </style>

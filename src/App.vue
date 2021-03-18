@@ -5,8 +5,13 @@
 </template>
 
 <script>
+import UtilsMixin from '@/mixins/utils'
 export default {
   name: 'App',
+  mixins: [UtilsMixin],
+  async created() {
+    await this.getAllUtils()
+  },
   metaInfo() {
     return { 
       title: this.$t('meta.' + this.$route.name ),

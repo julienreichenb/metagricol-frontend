@@ -1,14 +1,14 @@
 export default {
     data() {
         return {
-            cattles: []
+            cultures: []
         }
     },
     methods: {
-        async getCattles() {
-            await this.axios.get('cattles')
+        async getCultures() {
+            await this.axios.get('cultures')
                 .then((res) => {
-                    this.cattles = []
+                    this.cultures = []
                     res.data.map((c) => {
                         console.log(c)
                     })
@@ -17,10 +17,10 @@ export default {
                     console.log(err)
                 })
         },
-        async getCattle(id) {
-            await this.axios.get(`cattle/${id}`)
+        async getCulture(id) {
+            await this.axios.get(`culture/${id}`)
                 .then((res) => {
-                    this.cattles = []
+                    this.cultures = []
                     console.log(res.data)
                 })
                 .catch((err) => {

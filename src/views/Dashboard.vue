@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <page-title :titleKey="'dashboard.title'" />
-    <LeafletMap :selected="selected" />
+  <div id="dashboard">
+    <page-title :titleKey="'dashboard.map'" />
+    <LeafletMap />
     <router-view />
   </div>
 </template>
@@ -9,18 +9,15 @@
 <script>
 import LeafletMap from '@/components/map/LeafletMap'
 export default {
-    name: 'Dashboard',
-    components: {
-      LeafletMap,
-    },
-    data() {
-      return {
-        selected: null,
-      }
-    },
+  name: 'Dashboard',
+  components: {
+    LeafletMap,
+  },
 }
 </script>
 
-<style>
-
+<style lang="scss">
+#dashboard {
+  min-height: 160vh;
+}
 </style>
