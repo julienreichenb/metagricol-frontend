@@ -3,7 +3,7 @@
         <page-title :titleKey="tKey + 'title'" />
         <b-row no-gutters>
             <b-col lg="12" xl="6" class="pt-4">
-                <b-row no-gutters>
+                <b-row no-gutters v-if="cattleKeyNumbers.length">
                     <b-col class="cattle-entry"
                         lg="6" xl="12" 
                         v-for="(n, index) in cattleKeyNumbers" 
@@ -37,13 +37,14 @@
                 </b-row>
             </b-col>
             <b-col lg="12" xl="6">
-                <apexchart v-if="cattleChart.ready" type="treemap" 
+                <apexchart v-if="cattleChart.series.length" type="treemap" 
                     height="500" width="100%"
                     :series="cattleChart.series" 
                     :options="cattleChart.options" 
                 />
             </b-col>
         </b-row>
+
     </div>
 </template>
 
@@ -64,29 +65,22 @@ export default {
             testid: 33884,
         }
     },
-    async created() {
-        await this.callApis()
-        this.formatCharts()
-        this.setKeyNumbers()
-    },
-    methods: {
-        async callApis(id) {
-            if(id) {
-                await this.getMilk(id)
-                await this.getCattle(id)
-            } else {
-                await this.getMilks()
-                await this.getCattles()
+    watch: {
+        cattles(val) {
+            console.log(val)
+            if(val.length) {
+                console.log('Compute Key Numbers & Chart')
+                this.setCattleKeyNumbers()
+                this.setCattleChart()
             }
         },
-        formatCharts() {
-            this.setMilkChart()
-            this.setCattleChart()
-        },
-        setKeyNumbers() {
-            this.setCattleKeyNumbers()
-        }
     },
+    mounted() {
+        if(this.cattles.length) {
+            this.setCattleKeyNumbers()
+            this.setCattleChart()
+        }
+    }
 }
 </script>
 

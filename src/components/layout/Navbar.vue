@@ -1,7 +1,7 @@
 <template>
   <b-navbar id="navbar" :class="isOpen ? ' open' : ''" sticky type="dark" variant="dark">
         <b-navbar-brand :to="$i18nRoute({ name: 'Home' })" class="mr-5">
-            <font-awesome-icon v-if="icon" :icon="icon.icon" size="lg" class="mr-2 fa-2x" :color="icon.color" />
+            <font-awesome-icon :icon="['fad', 'burn']" size="lg" class="mr-2 fa-2x" color="orangered" />
             <span id="brand-text" class="small-caps p-2">Metagricol</span>
         </b-navbar-brand>
         <b-navbar-nav>
@@ -33,15 +33,6 @@ export default {
     data() {
         return {
             tKey: 'menu.',
-            icon: null,
-            icons: [
-                { icon: ['fad', 'tractor'], color: 'chocolate' },
-                { icon: ['fad', 'sheep'], color: 'lightblue' },
-                { icon: ['fad', 'pig'], color: 'pink' },
-                { icon: ['fad', 'farm'], color: 'firebrick' },
-                { icon: ['fad', 'cow'], color: 'lightgrey' },
-                { icon: ['fad', 'wheat'], color: 'green' },   
-            ],
             menu: [
                 {
                     key: 'home',
@@ -57,15 +48,6 @@ export default {
                 },
             ]
         }
-    },
-    mounted() {
-        this.icon = this.randomIcon()
-    },
-    methods: {
-        randomIcon() {
-            const rand = Math.floor(Math.random() * this.icons.length)
-            return this.icons[rand]
-        },
     },
 }
 </script>

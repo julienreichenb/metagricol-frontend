@@ -37,7 +37,7 @@ export default {
                     key: 'summary',
                     icon: {
                         icon: 'farm',
-                        color: 'firebrick',
+                        color: 'chocolate',
                     },
                     to: 'Summary',
                 },
@@ -48,14 +48,6 @@ export default {
                         color: 'lightgrey'     
                     },
                     to: 'Cattle',
-                },
-                {
-                    key: 'culture',
-                    icon: { 
-                        icon: ['fad', 'wheat'], 
-                        color: 'green' 
-                    },
-                    to: 'Culture'
                 },
                 {
                     key: 'milk',
@@ -69,7 +61,7 @@ export default {
         }
     },
     watch: {
-        isOpen: function (val) {
+        isOpen(val) {
             setTimeout(() => {
                 this.openText = val
             }, val ? 280 : 0)

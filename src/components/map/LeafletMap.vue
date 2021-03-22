@@ -69,8 +69,8 @@ export default {
         this.init()
     },
     mounted() {
-        this.getGis(33884)
-        //this.getAllGis()
+        //this.getGis(33884)
+        this.getAllGis()
     },
     methods: {
         init() {

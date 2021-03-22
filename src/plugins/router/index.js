@@ -58,11 +58,6 @@ const routes = [
                 component: load('dashboard/Cattle', false),
               },
               {
-                path: 'culture',
-                name: 'Culture',
-                component: load('dashboard/Culture', false),
-              },
-              {
                 path: 'milk',
                 name: 'Milk',
                 component: load('dashboard/Milk', false),

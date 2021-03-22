@@ -1,10 +1,8 @@
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
     data() {
         return {
-            cattles: [],
             cattleChart: {
-                ready: false,
                 series: [],
                 options: {},
             },
@@ -13,24 +11,17 @@ export default {
     },
     computed: {
         ...mapGetters('utils', ['cattleCategories', 'cattleTypes', 'cultureTypes', 'cultureSpecies', 'cultureModes', 'areaTypes']),
+        ...mapGetters('cattle', ['cattles']),
     },
     methods: {
         async getCattles() {
             await this.axios.get('cattles')
                 .then((res) => {
-                    this.cattles = res.data.map((d) => {
-                        return d
+                    const temp = []
+                    res.data.map((d) => {
+                        temp.push(d)
                     })
-                })
-                .catch((err) => {
-                    console.log(err)
-                })
-        },
-        async getCattle(id) {
-            await this.axios.get(`cattle/${id}`)
-                .then((res) => {
-                    this.cattles = []
-                    this.cattles.push(res.data)
+                    this.setCattles(temp)
                 })
                 .catch((err) => {
                     console.log(err)
@@ -50,13 +41,19 @@ export default {
             })
         },
         setCattleChart() {
-            this.cattleChart.ready = false
             this.cattleChart.series.push({ data: [] })
             this.cattleChart.options = {
                 chart: {
                     toolbar: {
-                        show: false
-                    }
+                        show: false,
+                    },
+                },
+                tooltip: {
+                    y: {
+                        formatter: (val) => {
+                            return val + ' UGBs'
+                        },
+                    },
                 },
                 plotOptions: {
                     treemap: {
@@ -74,7 +71,6 @@ export default {
                     y: total.toFixed(2),
                 })
             })
-            this.cattleChart.ready = true
         },
         setCattleIcon(id) {
             let icon, color
@@ -112,6 +108,7 @@ export default {
                 icon: ['fad', icon],
                 color
             }
-        }
+        },
+        ...mapActions('cattle', ['setCattles']),
     },
 }
