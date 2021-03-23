@@ -18,11 +18,18 @@
                 />
                 <ExploitationMarkers :exploitationsgis="exploitationsgis" :bounds="currentBounds" :zoom="currentZoom" />
                 <l-control position="topright" class="mt-2 mr-2">
-                    <b-link @click="recenterMap">
+                    <b-link @click="recenterMap" v-b-tooltip.hover :title="$t(tKey + 'centerTooltip')">
                         <font-awesome-layers class="fa-6x">
                             <font-awesome-icon icon="circle" class="text-primary" />
                             <font-awesome-icon icon="circle" color="white" transform="shrink-1" />
                             <font-awesome-icon :icon="['fad', 'crosshairs']" class="text-primary" transform="shrink-6" />
+                        </font-awesome-layers>
+                    </b-link>
+                    <b-link @click="this.clearSelection" v-b-tooltip.hover :title="$t(tKey + 'clearTooltip')">
+                        <font-awesome-layers class="fa-6x">
+                            <font-awesome-icon icon="circle" class="text-warning" />
+                            <font-awesome-icon icon="circle" color="white" transform="shrink-1" />
+                            <font-awesome-icon :icon="['fad', 'broom']" class="text-warning pr-3" transform="shrink-7" />
                         </font-awesome-layers>
                     </b-link>
                 </l-control>
@@ -37,14 +44,19 @@
 <script>
 import { latLng } from "leaflet"
 import MapMixin from '@/mixins/map'
+import ExploitationMixin from '@/mixins/exploitation'
 import ExploitationMarkers from './ExploitationMarkers'
 export default {
-    mixins: [MapMixin],
+    mixins: [
+        MapMixin,
+        ExploitationMixin,
+    ],
     components: {
         ExploitationMarkers,
     },
     data() {
         return {
+            tKey: 'dashboard.map.',
             zoom: 9.5,
             center: latLng(46.1707967, 7.6220283),
             bounds: {
@@ -69,7 +81,6 @@ export default {
         this.init()
     },
     mounted() {
-        //this.getGis(33884)
         this.getAllGis()
     },
     methods: {

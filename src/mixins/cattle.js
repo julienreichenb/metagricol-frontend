@@ -28,10 +28,12 @@ export default {
                 })
         },
         setCattleKeyNumbers() {
+            this.cattleKeyNumbers = []
             this.cattleCategories.map((c) => {
                 const cattleSet = this.cattles.filter((x) => x.category.idcattlecategory === c.idcattlecategory && x.ugb > 0)
                 this.cattleKeyNumbers.push({
                     key: c.cattlecategoryname,
+                    id: c.idcattlecategory,
                     count: cattleSet.length,
                     avg: (cattleSet.reduce((prev, cur) => prev + cur.ugb, 0) / cattleSet.length).toFixed(2),
                     max: Math.max.apply(Math, cattleSet.map((o) => o.ugb)).toFixed(2),

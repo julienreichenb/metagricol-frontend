@@ -1,6 +1,6 @@
 <template>
   <div id="dashboard">
-    <page-title :titleKey="'dashboard.map'" />
+    <page-title :titleKey="'dashboard.map.title'" />
     <LeafletMap />
     <router-view />
   </div>
@@ -27,10 +27,10 @@ export default {
   methods: {
     callApis(id) {
       if(id) {
-        this.getMilk(id)
+        this.getCompany(id)
         this.getCattle(id)
       } else {
-        this.getMilks()
+        this.getCompanies()
         this.getCattles()
       }
     },
@@ -40,6 +40,6 @@ export default {
 
 <style lang="scss">
 #dashboard {
-  min-height: 160vh;
+  min-height: 270vh;
 }
 </style>

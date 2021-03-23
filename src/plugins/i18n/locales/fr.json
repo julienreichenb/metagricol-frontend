@@ -53,14 +53,27 @@
         "title": "À propos de Metagricol"
     },
     "dashboard": {
-        "map": "Carte des exploitations",
+        "map": {
+            "title": "Carte des exploitations",
+            "centerTooltip": "Recentrer la carte",
+            "clearTooltip": "Réinitialiser la sélection"
+        },
         "summary": {
             "title": "Vue d'ensemble",
             "cattle": {
+                "title": "Récapitulatif du bétail",
                 "count": "Nombre expl.",
                 "sum": "Nombre UGBs",
                 "avg": "Moyenne UGBs",
                 "max": "Plus grande expl."
+            },
+            "milk": {
+                "title": "Récapitulatif des fromageries",
+                "byLocations": "Par localité",
+                "company": "Entreprise transformatrice",
+                "additionalinfo": "",
+                "location": "Localité",
+                "total": "Kgs de lait"
             }
         },
         "cattle": "Bétail & Fumier",
