@@ -6,7 +6,8 @@
         "Summary": "Vue d'ensemble",
         "Cattle": "Bétail & Fumier",
         "Culture": "Agriculture",
-        "Milk": "Production laitière"
+        "Milk": "Production laitière",
+        "ExploitationDetail": "Détail de l'exploitation"
     },
     "utils": {
         "none": "Aucun",
@@ -79,5 +80,18 @@
         "cattle": "Bétail & Fumier",
         "culture": "Agriculture",
         "milk":"Production laitière"
+    },
+    "detail": {
+        "back": "Retour aux exploitations",
+        "exploitation": "Exploitation",
+        "exploitant": "Exploitant",
+        "contact": "Contact",
+        "hasCattle": "Possède du bétail",
+        "hasMilk": "Produit du lait",
+        "moreInfo": "Plus d'infos",
+        "area": "Type de zone",
+        "type": "Type d'exploitation",
+        "legal": "Forme légale",
+        "surface": "Surface totale"
     }
 }

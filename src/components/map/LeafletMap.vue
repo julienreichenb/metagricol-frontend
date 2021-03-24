@@ -4,7 +4,6 @@
             <l-map
                 style="height: 55vh"
                 ref="map"
-                v-if="showMap"
                 :zoom="zoom"
                 :center="center"
                 :options="mapOptions"
@@ -69,12 +68,10 @@ export default {
             currentZoom: null,
             currentCenter: null,
             currentBounds: null,
-            showParagraph: false,
             mapOptions: {
                 zoomSnap: 0.5,
                 zoomControl: false,
             },
-            showMap: true,
         }
     },
     created() {
