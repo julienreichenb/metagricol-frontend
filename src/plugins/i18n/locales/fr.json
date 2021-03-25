@@ -92,6 +92,33 @@
         "area": "Type de zone",
         "type": "Type d'exploitation",
         "legal": "Forme légale",
-        "surface": "Surface totale"
+        "surface": "Surface totale",
+        "parcels": "Nb de parcelles",
+        "otherExploitations": "Du même exploitant",
+        "tableOther": {
+            "noct": "N° CT",
+            "milk": "Prod. laitière",
+            "ugb": "UGBs"
+        },
+        "parcel": {
+            "parcels": "Parcelles de l'exploitation",
+            "parcel": "Parcelle",
+            "owner": "Propriétaire",
+            "culture": "Culture",
+            "culturetype": "Type de culture",
+            "culturemode": "Mode de culture",
+            "culturespecie": "Espèce cultivée",
+            "other": "Autres infos",
+            "surfacetotal": "Surface totale",
+            "surfaceexploited": "Surface exploitée",
+            "slope": "Pente",
+            "constructible": "Constructible"
+        },
+        "cattle": {
+            "cattles": "Unités Gros Gibier (UGB)"
+        },
+        "milk": {
+            "milks": "Production laitière"
+        }
     }
 }

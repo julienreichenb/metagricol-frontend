@@ -32,7 +32,7 @@ const routes = [
             component: load('About'),
           },
           {
-            path: '/exploitation/:idexploitation',
+            path: 'exploitation/:idexploitation',
             name: 'ExploitationDetail',
             component: load('ExploitationDetail'),
           },
@@ -76,7 +76,7 @@ const routes = [
 
 const router = new VueRouter({
   routes,
-  //mode: 'history',
+  mode: 'history',
 })
 
 export default router

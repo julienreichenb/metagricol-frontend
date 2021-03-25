@@ -1,7 +1,9 @@
 <template>
   <div class="text-center py-2">
         <h2>
-            <span class="section-title" v-html="$t(titleKey)" />
+            <span class="section-title">
+               {{ beforeTxt }} {{ $t(titleKey) }} {{ afterTxt }}
+            </span>
         </h2>
   </div>
 </template>
@@ -11,6 +13,8 @@ export default {
     name: 'SectionTitle',
     props: {
         titleKey: { type: String, required: true },
+        beforeTxt: { type: String, required: false },
+        afterTxt: { type: String, required: false },
     },
 }
 </script>

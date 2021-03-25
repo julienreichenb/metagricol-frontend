@@ -7,6 +7,10 @@ export default {
                 options: {},
             },
             cattleKeyNumbers: [],
+            cattleDetailChart: {
+                series: [],
+                options: {},
+            },
         }
     },
     computed: {
@@ -69,6 +73,38 @@ export default {
                     .filter((x) => x.category.idcattlecategory === c.idcattlecategory)
                     .reduce((prev, cur) => prev + cur.ugb, 0)
                 this.cattleChart.series[0].data.push({
+                    x: this.$t('cattle.category.' + c.cattlecategoryname),
+                    y: total.toFixed(2),
+                })
+            })
+        },
+        setCattleDetailChart(cattles) {
+            this.cattleDetailChart.series.push({ data: [] })
+            this.cattleDetailChart.options = {
+                chart: {
+                    toolbar: {
+                        show: false,
+                    },
+                },
+                tooltip: {
+                    y: {
+                        formatter: (val) => {
+                            return val + ' UGBs'
+                        },
+                    },
+                },
+                plotOptions: {
+                    treemap: {
+                        enableShades: false,
+                        distributed: true,
+                    },
+                },
+            }
+            this.cattleCategories.map((c) => {
+                const total = cattles
+                    .filter((x) => x.category.idcattlecategory === c.idcattlecategory)
+                    .reduce((prev, cur) => prev + cur.ugb, 0)
+                this.cattleDetailChart.series[0].data.push({
                     x: this.$t('cattle.category.' + c.cattlecategoryname),
                     y: total.toFixed(2),
                 })

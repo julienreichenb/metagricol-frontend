@@ -10,6 +10,10 @@ export default {
                     options: null,
                 },
             ],
+            milkDetailChart: {
+                series: [],
+                options: {},
+            },
         }
     },
     computed: {
@@ -91,6 +95,31 @@ export default {
                     show: false,
                 },
                 labels: sortedTemp.map((s) => s.location),
+            }
+        },
+        setMilkDetailChart(milk) {
+            const temp = this.$groupBy(milk, 'company')
+            const sortedTemp = [...new Set(milk.map(m => m.company))].map((c) => {
+                return {
+                    name: c.companyname,
+                    totalmilksell: temp[c].reduce((sum, val) => sum + val.quantity, 0),
+                }
+            }).sort((a, b) => b.totalmilksell - a.totalmilksell)
+            this.milkDetailChart.series = sortedTemp.map((s) => s.totalmilksell)
+            this.milkDetailChart.options = {
+                title: {
+                    text: this.$t('dashboard.summary.milk.byLocations'),
+                    align: 'center',
+                },
+                chart: {
+                    toolbar: {
+                        show: false,
+                    },
+                },
+                legend: {
+                    show: false,
+                },
+                labels: sortedTemp.map((s) => s.name),
             }
         },
         ...mapActions('milk', ['setMilks', 'setCompanies']),
