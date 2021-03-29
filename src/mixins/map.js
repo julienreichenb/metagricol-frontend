@@ -7,7 +7,7 @@ export default {
     },
     methods: {
         async getAllGis() {
-            await this.axios.get('gis')
+            await this.axios.get('gis/exploitation')
                 .then((res) => {
                     this.exploitationsgis = []
                     res.data.map((e) => {
@@ -27,7 +27,7 @@ export default {
                 })
         },
         async getGis(id) {
-            await this.axios.get(`gis/${id}`)
+            await this.axios.get(`gis/exploitation/${id}`)
                 .then((res) => {
                     this.exploitationsgis = []
                     this.exploitationsgis.push(

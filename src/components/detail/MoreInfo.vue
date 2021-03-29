@@ -33,7 +33,7 @@
                     <span v-html="exploitation.parcels.length" />
                 </b-col>
         </b-row>
-        <div v-if="otherExploitations">
+        <div v-if="otherExploitations && otherExploitationsFiltered.length">
                 <h4 v-html="$t(tKey + 'otherExploitations')" />
                 <b-table 
                     :items="otherExploitationsFiltered"
