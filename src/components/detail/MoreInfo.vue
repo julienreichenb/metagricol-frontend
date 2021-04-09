@@ -34,14 +34,14 @@
                 </b-col>
         </b-row>
         <div v-if="otherExploitations && otherExploitationsFiltered.length">
-                <h4 v-html="$t(tKey + 'otherExploitations')" />
-                <b-table 
-                    :items="otherExploitationsFiltered"
-                    :fields="otherExploitationsFields"
-                    striped
-                    hover
-                    @row-clicked="goToDetail"
-                />
+            <h4 v-html="$t(tKey + 'otherExploitations')" />
+            <b-table 
+                :items="otherExploitationsFiltered"
+                :fields="otherExploitationsFields"
+                striped
+                hover
+                @row-clicked="goToDetail"
+            />
         </div>
     </div>
 </template>
@@ -56,6 +56,13 @@ export default {
         return {
             tKey: 'detail.',
         }
+    },
+    watch: { 
+        $route(to, from) {
+            if(to !== from){ 
+                location.reload(); 
+            } 
+        },
     },
     computed: {
         otherExploitationsFiltered() {
@@ -81,12 +88,9 @@ export default {
             ]
         }
     },
-    beforeRouteUpdate(to, from, next) {
-        next(to)
-    },
     methods: {
         goToDetail(item) {
-            this.$router.dispatch(
+            this.$router.push(
                 this.$i18nRoute({ 
                     name: 'ExploitationDetail', 
                     params: { idexploitation: item.idexploitation },
