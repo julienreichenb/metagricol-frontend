@@ -2,7 +2,7 @@
   <b-navbar id="navbar" :class="isOpen ? ' open' : ''" sticky type="dark" variant="dark">
         <b-navbar-brand :to="$i18nRoute({ name: 'Home' })" class="mr-5">
             <font-awesome-icon :icon="['fad', 'burn']" size="lg" class="mr-2 fa-2x" color="orangered" />
-            <span id="brand-text" class="small-caps p-2">Metagricol</span>
+            <span id="brand-text" class="small-caps p-2">Methagricole</span>
         </b-navbar-brand>
         <b-navbar-nav>
             <b-nav-item v-for="i in menu" 

@@ -1,6 +1,6 @@
 {
     "meta": {
-        "suffix": "Metagricol",
+        "suffix": "Methagricole",
         "Home": "Accueil",
         "About": "À Propos",
         "Summary": "Vue d'ensemble",
@@ -51,7 +51,7 @@
         }
     },
     "about": {
-        "title": "À propos de Metagricol"
+        "title": "À propos de Methagricole"
     },
     "dashboard": {
         "map": {
