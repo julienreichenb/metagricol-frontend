@@ -1,6 +1,6 @@
 <template>
   <div>
-    <font-awesome-icon :icon="['fad', 'spinner']" :class="customClass" spin />
+    <font-awesome-icon :icon="['fas', 'spinner']" :class="customClass" spin />
     <p class="lead text-muted mt-2" v-html="$t(text)" />
   </div>
 </template>

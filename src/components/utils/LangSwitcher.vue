@@ -1,7 +1,7 @@
 <template>
   <b-dropdown id="dropdown-lang" variant="outline-light" no-caret>
         <template #button-content>
-            <font-awesome-icon class="fa-2x" :icon="['fal', 'globe']" /> {{ $i18n.locale.toUpperCase() }}
+            <font-awesome-icon class="fa-2x" :icon="['fas', 'globe']" /> {{ $i18n.locale.toUpperCase() }}
         </template>
         <b-dropdown-item v-for="locale in supportedLocales" 
             :key="locale"

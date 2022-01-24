@@ -3,7 +3,7 @@
         <div class="pb-2 d-flex" :class="isOpen ? 'border-bottom border-light justify-content-between' : 'justify-content-around'">
             <span v-if="openText" class="ml-2" v-html="$t(tKey + 'title').toUpperCase()" />
             <b-link @click="$emit('switch')">
-                <font-awesome-icon class="lead" :class="openText && ' mr-3'" :icon="isOpen ? ['far', 'arrow-from-right'] : ['far', 'arrow-from-left']" />
+                <font-awesome-icon class="lead" :class="openText && ' mr-3'" :icon="isOpen ? ['fas', 'arrow-from-right'] : ['fas', 'arrow-from-left']" />
             </b-link>
         </div>
         <b-link v-for="m in menu" :key="m.key" :to="$i18nRoute({ name: m.to })">
@@ -44,7 +44,7 @@ export default {
                 {
                     key: 'cattle',
                     icon: { 
-                        icon: ['fad', 'cow'], 
+                        icon: ['fas', 'cow'], 
                         color: 'lightgrey'     
                     },
                     to: 'Cattle',
@@ -52,7 +52,7 @@ export default {
                 {
                     key: 'milk',
                     icon: {
-                        icon: ['fad', 'cheese-swiss'],
+                        icon: ['fas', 'cheese-swiss'],
                         color: 'yellow',
                     },
                     to: 'Milk',
