@@ -1,0 +1,4 @@
+- name: Install dependencies using a safe clean install, build and test
+  run: |
+  npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}"
+  npm ci --ignore-scripts
