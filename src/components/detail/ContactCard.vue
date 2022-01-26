@@ -4,7 +4,7 @@
         <div class="lead">
             <b-row v-if="email">
                 <b-col sm="1">
-                    <font-awesome-icon class="mr-1" :icon="['fas', 'envelope']" />
+                    <font-awesome-icon class="mr-1" :icon="'envelope'" />
                 </b-col>
                 <b-col>
                     <a :href="'mailto:' + email">{{ email }}</a>
@@ -12,7 +12,7 @@
             </b-row>
             <b-row v-if="phoneprivate">
                 <b-col sm="1">
-                    <font-awesome-icon class="mr-1" :icon="['fas', 'phone']" />
+                    <font-awesome-icon class="mr-1" :icon="'phone'" />
                 </b-col>
                 <b-col>
                     {{ phoneprivate }}
@@ -20,7 +20,7 @@
             </b-row>
             <b-row v-if="phonemobile">
                 <b-col sm="1">
-                    <font-awesome-icon class="mr-1" :icon="['fas', 'mobile-alt']" />
+                    <font-awesome-icon class="mr-1" :icon="'mobile-alt'" />
                 </b-col>
                 <b-col>
                     {{ phonemobile }}
@@ -28,7 +28,7 @@
             </b-row>
             <b-row v-if="address">
                 <b-col sm="1">
-                    <font-awesome-icon class="mr-1" :icon="['fas', 'map-marker-alt']" />
+                    <font-awesome-icon class="mr-1" :icon="'map-marker-alt'" />
                 </b-col>
                 <b-col>
                     {{ address }}
