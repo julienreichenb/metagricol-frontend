@@ -1,10 +1,124 @@
 {
     "meta": {
         "suffix": "Methagricole",
-        "Home": "Home"
+        "Home": "Home",
+        "About": "About",
+        "Summary": "Summary",
+        "Cattle": "Cattle and Manure",
+        "Culture": "Agriculture",
+        "Milk": "Milk production",
+        "ExploitationDetail": "Exploitation details"
+    },
+    "utils": {
+        "none": "None",
+        "all": "All",
+        "loading": "Loading...",
+        "search": {
+            "placeholderDefault": "Search...",
+            "searchDefault": "Search",
+            "placeholderExploitant": "Exploitation or owner number..."
+        }
     },
     "lang": {
         "fr": "Français",
         "en": "English"
+    },
+    "cattle": {
+        "category": {
+            "bovin": "Bovines",
+            "équidé": "Equines",
+            "ovin": "Ovines",
+            "caprin": "Caprines",
+            "autre": "Others",
+            "volaille et lapin": "Poultry/Rabbits",
+            "porcin": "Porks"
+        }
+    },
+    "menu": {
+        "home": "Home",
+        "dashboard": "Dashboard",
+        "about": "About"
+    },
+    "sidebar": {
+        "title": "Dashboard Menu",
+        "summary": "Summary",
+        "cattle": "Cattle and Manure",
+        "culture": "Agriculture",
+        "milk": "Milk Production",
+        "exploitation": {
+            "title": "Exploitations list : click to select",
+            "button": "See details"
+        }
+    },
+    "about": {
+        "title": "About Methagricole"
+    },
+    "dashboard": {
+        "map": {
+            "title": "Exploitations Map",
+            "centerTooltip": "Center Map",
+            "clearTooltip": "Clear Selection"
+        },
+        "summary": {
+            "title": "Summary",
+            "cattle": {
+                "title": "Cattle Recap",
+                "count": "Expl. number",
+                "sum": "BGUs num",
+                "avg": "BGUs avg",
+                "max": "Biggest expl."
+            },
+            "milk": {
+                "title": "Fromageries Recap",
+                "byLocations": "By locality",
+                "company": "Transformative company",
+                "additionalinfo": "",
+                "location": "Locality",
+                "total": "Milk KGs"
+            }
+        },
+        "cattle": "Cattle and Manure",
+        "culture": "Agriculture",
+        "milk":"Milk Production"
+    },
+    "detail": {
+        "back": "Back to exploitations",
+        "exploitation": "Exploitation",
+        "exploitant": "Eploitant",
+        "contact": "Contact",
+        "hasCattle": "Own cattle",
+        "hasMilk": "Product milk",
+        "moreInfo": "More info",
+        "area": "Area Type",
+        "type": "Exploitation Type",
+        "legal": "Legal Form",
+        "surface": "Total Surface",
+        "parcels": "Nb of parcels",
+        "otherExploitations": "From same exploitant",
+        "tableOther": {
+            "noct": "N° CT",
+            "milk": "Milk prod.",
+            "ugb": "BGUs"
+        },
+        "parcel": {
+            "parcels": "Exploitation parcels",
+            "parcel": "Parcel",
+            "owner": "Owner",
+            "culture": "Culture",
+            "culturetype": "Culture Type",
+            "culturemode": "Culture Mode",
+            "culturespecie": "Cultivated Specie",
+            "other": "Other info",
+            "surfacetotal": "Total Surface",
+            "surfaceexploited": "Exploited Surface",
+            "slope": "Slope",
+            "constructible": "Constructible"
+        },
+        "cattle": {
+            "cattles": "Big Game Units (BGUs)"
+        },
+        "milk": {
+            "milks": "Milk Production"
+        }
     }
 }
