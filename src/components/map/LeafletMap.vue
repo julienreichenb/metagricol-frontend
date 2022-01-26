@@ -21,14 +21,14 @@
                         <font-awesome-layers class="fa-6x">
                             <font-awesome-icon icon="circle" class="text-primary" />
                             <font-awesome-icon icon="circle" color="white" transform="shrink-1" />
-                            <font-awesome-icon :icon="['fas', 'crosshairs']" class="text-primary" transform="shrink-6" />
+                            <font-awesome-icon :icon="'crosshairs'" class="text-primary" transform="shrink-6" />
                         </font-awesome-layers>
                     </b-link>
                     <b-link @click="this.clearSelection" v-b-tooltip.hover :title="$t(tKey + 'clearTooltip')">
                         <font-awesome-layers class="fa-6x">
                             <font-awesome-icon icon="circle" class="text-warning" />
                             <font-awesome-icon icon="circle" color="white" transform="shrink-1" />
-                            <font-awesome-icon :icon="['fas', 'broom']" class="text-warning pr-3" transform="shrink-7" />
+                            <font-awesome-icon :icon="'broom'" class="text-warning pr-3" transform="shrink-7" />
                         </font-awesome-layers>
                     </b-link>
                 </l-control>

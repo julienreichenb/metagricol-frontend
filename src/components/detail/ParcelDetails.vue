@@ -58,7 +58,7 @@
                                 </b-col>
                                 <b-col sm="6" lg="3">
                                     <font-awesome-icon 
-                                        :icon="p.constructible ? ['fad', 'check-circle'] : ['fad', 'times-circle']" 
+                                        :icon="p.constructible ? 'check-circle' : 'times-circle'" 
                                         :color="p.constructible ? 'green' : 'red'"
                                     />
                                 </b-col>
